@@ -10,7 +10,8 @@ class TodosController extends Controller
     public function index()
     {
         $todos = [
-            'buy milk'
+            'buy milk',
+            'take a walk'
         ];
         return view('todos.index', [
             'todos' => $todos
