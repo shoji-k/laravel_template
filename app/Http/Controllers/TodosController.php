@@ -1,6 +1,10 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\Http\Controllers;
+
+use Illuminate\Support\Facades\DB;
 
 class TodosController extends Controller
 {
@@ -9,10 +13,7 @@ class TodosController extends Controller
      */
     public function index()
     {
-        $todos = [
-            'buy milk',
-            'take a walk'
-        ];
+        $todos = DB::table('todos')->get();
         return view('todos.index', [
             'todos' => $todos
         ]);

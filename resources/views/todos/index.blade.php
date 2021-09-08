@@ -11,7 +11,7 @@
     <h1>Todo list</h1>
     <ul>
         @foreach ($todos as $todo)
-        <li>{{ $todo }}</li>
+        <li>{{ $todo->todo }}</li>
         @endforeach
     </ul>
 </body>
