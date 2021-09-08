@@ -40,7 +40,7 @@ class TodosController extends Controller
         Todo::create([
             'todo' => $request->todo
         ]);
-        return redirect('todos');
+        return redirect('todos.index');
     }
 
     /**

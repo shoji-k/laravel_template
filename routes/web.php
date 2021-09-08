@@ -17,7 +17,5 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/todos', [App\Http\Controllers\TodosController::class, 'index']);
-Route::get('/todos/new', [App\Http\Controllers\TodosController::class, 'new']);
-Route::post('/todos', [App\Http\Controllers\TodosController::class, 'create']);
-Route::get('/todos/{todo}', [App\Http\Controllers\TodosController::class, 'edit']);
+Route::resource('todos', App\Http\Controllers\TodoController::class)
+    ->except(['show']);

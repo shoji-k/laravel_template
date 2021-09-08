@@ -10,10 +10,10 @@
 <body>
     <h1>Edit Todo</h1>
     <div>
-        <a href="/todos">Back to list</a>
+        <a href="{{ route('todos.index') }}">Back to list</a>
     </div>
     <div>
-        <form name="editform" action="/todos/update" method="put" id="editform">
+        <form name="editform" action="{{ route('todos.update', ['todo' => $todo->id]) }}" method="put" id="editform">
             @csrf
             <dl>
                 <dt>Todo</dt>

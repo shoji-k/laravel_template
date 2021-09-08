@@ -10,7 +10,7 @@
 <body>
     <h1>Create Todo</h1>
     <div>
-        <a href="/todos">Back to list</a>
+        <a href="{{ route('todos.index') }}">Back to list</a>
     </div>
     <div>
         <form name="createform" action="/todos" method="post" id="createform">

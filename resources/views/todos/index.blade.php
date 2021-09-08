@@ -10,11 +10,15 @@
 <body>
     <h1>Todo list</h1>
     <div>
-        <a href="/todos/new">Create</a>
+        <a href="{{ route('todos.create') }}">Create</a>
     </div>
     <ul>
         @foreach ($todos as $todo)
-        <li>{{ $todo->todo }}</li>
+        <li>
+            <a href="{{ route('todos.edit', ['todo' => $todo->id]) }}">
+                {{ $todo->todo }}
+            </a>
+        </li>
         @endforeach
     </ul>
 </body>
