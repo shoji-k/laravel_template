@@ -9,6 +9,9 @@
 
 <body>
     <h1>Todo list</h1>
+    <div>
+        <a href="/todos/new">Create</a>
+    </div>
     <ul>
         @foreach ($todos as $todo)
         <li>{{ $todo->todo }}</li>
