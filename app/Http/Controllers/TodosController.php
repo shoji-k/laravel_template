@@ -40,6 +40,16 @@ class TodosController extends Controller
         Todo::create([
             'todo' => $request->todo
         ]);
-        return redirect('todos');    
+        return redirect('todos');
+    }
+
+    /**
+     * @return \Illuminate\View\View
+     */
+    public function edit(Todo $todo)
+    {
+        return view('todos.edit', [
+            'todo' => $todo
+        ]);
     }
 }
