@@ -43,7 +43,7 @@ class TodoController extends Controller
         Todo::create([
             'todo' => $request->todo
         ]);
-        return redirect('todos');
+        return redirect()->route('todos.index');
     }
 
     /**
@@ -75,7 +75,7 @@ class TodoController extends Controller
         $todo->todo = $request->todo;
         $todo->save();
 
-        return redirect('todos');
+        return redirect()->route('todos.index');
     }
 
     /**
@@ -86,6 +86,8 @@ class TodoController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $todo = Todo::find($id);
+        $todo->delete();
+        return redirect()->route('todos.index');
     }
 }
