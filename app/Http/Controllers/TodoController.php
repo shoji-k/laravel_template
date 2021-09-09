@@ -16,9 +16,7 @@ class TodoController extends Controller
     public function index()
     {
         $todos = DB::table('todos')->get();
-        return view('todos.index', [
-            'todos' => $todos
-        ]);
+        return view('todos.index', compact('todos'));
     }
 
     /**

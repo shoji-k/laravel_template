@@ -6,7 +6,7 @@ namespace Tests\Feature;
 
 use Tests\TestCase;
 
-class TodosTest extends TestCase
+class TodoTest extends TestCase
 {
     /**
      * @return void
@@ -23,7 +23,7 @@ class TodosTest extends TestCase
      */
     public function testAccessTodosNew()
     {
-        $response = $this->get('/todos/new');
+        $response = $this->get('/todos/create');
         $response->assertSeeText('Create Todo');
         $response->assertStatus(200);
     }
