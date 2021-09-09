@@ -13,7 +13,7 @@
         <a href="{{ route('todos.index') }}">Back to list</a>
     </div>
     <div>
-        <form name="createform" action="/todos" method="post" id="createform">
+        <form name="createform" action="{{ route('todos.store') }}" method="post" id="createform">
             @csrf
             <dl>
                 <dt>Todo</dt>

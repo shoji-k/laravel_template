@@ -13,7 +13,8 @@
         <a href="{{ route('todos.index') }}">Back to list</a>
     </div>
     <div>
-        <form name="editform" action="{{ route('todos.update', ['todo' => $todo->id]) }}" method="put" id="editform">
+        <form name="editform" action="{{ route('todos.update', ['todo' => $todo->id]) }}" method="post" id="editform">
+            @method('PUT')
             @csrf
             <dl>
                 <dt>Todo</dt>
