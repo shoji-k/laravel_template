@@ -18,6 +18,7 @@
             <a href="{{ route('todos.edit', ['todo' => $todo->id]) }}">
                 {{ $todo->todo }}
             </a>
+            {{ $todo->done ? '✔️' : '' }}
         </li>
         @endforeach
     </ul>
