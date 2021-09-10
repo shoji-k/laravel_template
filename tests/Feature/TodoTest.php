@@ -48,7 +48,8 @@ class TodoTest extends TestCase
      */
     public function testTodosStore()
     {
-        $response = $this->post("/todos", ['todo' => 'Test']);
+        $testTodo = 'Created Todo Sample';
+        $response = $this->post("/todos", ['todo' => $testTodo]);
         $response->assertRedirect(route('todos.index'));
     }
 
@@ -60,6 +61,7 @@ class TodoTest extends TestCase
         $todo = Todo::factory()->create();
         $response = $this->put("/todos/{$todo->id}", ['todo' => 'Test']);
         $response->assertRedirect(route('todos.index'));
+        $this->assertSame('Test', $todo->fresh()->todo);
     }
 
     /**
@@ -70,5 +72,6 @@ class TodoTest extends TestCase
         $todo = Todo::factory()->create();
         $response = $this->delete("/todos/{$todo->id}");
         $response->assertRedirect(route('todos.index'));
+        $this->assertNull($todo->fresh());
     }
 }
