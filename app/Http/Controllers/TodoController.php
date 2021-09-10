@@ -73,6 +73,7 @@ class TodoController extends Controller
         ]);
         $todo = Todo::find($id);
         $todo->todo = $request->todo;
+        $todo->done = $request->done === 'true';
         $todo->save();
 
         return redirect()->route('todos.index');
