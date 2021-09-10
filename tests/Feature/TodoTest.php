@@ -48,7 +48,27 @@ class TodoTest extends TestCase
      */
     public function testTodosStore()
     {
-        $response = $this->post("/todos", [ 'todo' => 'Test']);
+        $response = $this->post("/todos", ['todo' => 'Test']);
+        $response->assertRedirect(route('todos.index'));
+    }
+
+    /**
+     * @return void
+     */
+    public function testTodosUpdate()
+    {
+        $todo = Todo::factory()->create();
+        $response = $this->put("/todos/{$todo->id}", ['todo' => 'Test']);
+        $response->assertRedirect(route('todos.index'));
+    }
+
+    /**
+     * @return void
+     */
+    public function testTodosDelete()
+    {
+        $todo = Todo::factory()->create();
+        $response = $this->delete("/todos/{$todo->id}");
         $response->assertRedirect(route('todos.index'));
     }
 }
