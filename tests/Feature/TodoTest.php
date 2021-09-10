@@ -32,7 +32,7 @@ class TodoTest extends TestCase
         $response->assertStatus(200);
     }
 
-        /**
+    /**
      * @return void
      */
     public function testAccessTodosEdit()
@@ -41,5 +41,14 @@ class TodoTest extends TestCase
         $response = $this->get("/todos/{$todo->id}/edit");
         $response->assertSeeText('Edit Todo');
         $response->assertStatus(200);
+    }
+
+    /**
+     * @return void
+     */
+    public function testTodosStore()
+    {
+        $response = $this->post("/todos", [ 'todo' => 'Test']);
+        $response->assertRedirect(route('todos.index'));
     }
 }
