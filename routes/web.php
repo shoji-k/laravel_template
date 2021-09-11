@@ -19,3 +19,15 @@ Route::get('/', function () {
 
 Route::resource('todos', App\Http\Controllers\TodoController::class)
     ->except(['show']);
+
+Route::get('/api/customers', function () {});
+Route::post('/api/customers', function () {});
+Route::get('/api/customers/{id}', function () {});
+Route::put('/api/customers/{id}', function () {});
+Route::delete('/api/customers/{id}', function () {});
+
+Route::get('/api/reports', function () {});
+Route::post('/api/reports', function () {});
+Route::get('/api/reports/{id}', function () {});
+Route::put('/api/reports/{id}', function () {});
+Route::delete('/api/reports/{id}', function () {});
