@@ -59,9 +59,10 @@ class TodoTest extends TestCase
     public function testTodosUpdate()
     {
         $todo = Todo::factory()->create();
-        $response = $this->put("/todos/{$todo->id}", ['todo' => 'Test']);
+        $response = $this->put("/todos/{$todo->id}", ['todo' => 'Test', 'done' => true]);
         $response->assertRedirect(route('todos.index'));
         $this->assertSame('Test', $todo->fresh()->todo);
+        $this->assertTrue((bool)$todo->fresh()->done);
     }
 
     /**
