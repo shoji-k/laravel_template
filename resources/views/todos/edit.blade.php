@@ -25,7 +25,7 @@
                 <dt>Finish?</dt>
                 <dd>
                     <div>
-                        <input type="radio" id="done" name="done" value="false"
+                        <input type="radio" id="done" name="done" value="0"
                         @if (!$todo->done)
                           checked
                         @endif
@@ -33,13 +33,14 @@
                         <label for="done">Yet</label>
                     </div>
                     <div>
-                        <input type="radio" id="yet" name="done" value="true"
+                        <input type="radio" id="yet" name="done" value="1"
                         @if ($todo->done)
                           checked
                         @endif
                         />
                         <label for="yet">Done!</label>
                     </div>
+                    <span style="color: red;">{{ $errors->first('done') }}</span>
                 </dd>
             </dl>
             <button type="submit" name="action" value="send">Update</button>
