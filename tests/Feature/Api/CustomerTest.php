@@ -2,10 +2,21 @@
 
 namespace Tests\Feature\Api;
 
+use App\Models\Customer;
+use Illuminate\Foundation\Testing\RefreshDatabase;
 use Tests\TestCase;
 
 class CustomerTest extends TestCase
 {
+
+    use RefreshDatabase;
+
+    protected function setUp():void
+    {
+        parent::setUp();
+        $this->artisan('db:seed', ['--class' => 'TestDataSeeder']);
+    }
+
     /**
      * @test
      *
@@ -15,7 +26,11 @@ class CustomerTest extends TestCase
     {
         $response = $this->get('api/customers');
         $response->assertStatus(200);
+        $response->assertJsonCount(2);
+
+        $json = $response->json();
         $this->assertThat($response->content(), $this->isJson());
+        $this->assertSame(['id', 'name'], array_keys($json[0]));
     }
 
     /**
