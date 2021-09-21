@@ -22,7 +22,8 @@ Route::resource('todos', App\Http\Controllers\TodoController::class)
     ->except(['show']);
 
 Route::get('/api/customers', [CustomerController::class, 'index']);
-Route::post('/api/customers', function () {});
+Route::post('/api/customers', [CustomerController::class, 'store']);
+
 Route::get('/api/customers/{id}', function () {});
 Route::put('/api/customers/{id}', function () {});
 Route::delete('/api/customers/{id}', function () {});

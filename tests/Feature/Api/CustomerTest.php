@@ -8,10 +8,9 @@ use Tests\TestCase;
 
 class CustomerTest extends TestCase
 {
-
     use RefreshDatabase;
 
-    protected function setUp():void
+    protected function setUp(): void
     {
         parent::setUp();
         $this->artisan('db:seed', ['--class' => 'TestDataSeeder']);
@@ -40,8 +39,34 @@ class CustomerTest extends TestCase
      */
     public function api_canPostCustomer()
     {
-        $response = $this->post('api/customers');
+        $params = ['name' => 'new customer'];
+        $response = $this->postJson('api/customers', $params);
         $response->assertStatus(200);
+        $this->assertDatabaseHas('customers', $params);
+    }
+
+    /**
+     * @test
+     *
+     * @return void
+     */
+    public function api_canNotPostCustomerWithoutParams()
+    {
+        $params = [];
+        $response = $this->postJson('api/customers', $params);
+        $response->assertStatus(422);
+    }
+
+    /**
+     * @test
+     *
+     * @return void
+     */
+    public function api_canNotPostCustomerWithEmptyName()
+    {
+        $params = [ 'name' => '' ];
+        $response = $this->postJson('api/customers', $params);
+        $response->assertStatus(422);
     }
 
     /**
