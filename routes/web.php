@@ -20,7 +20,9 @@ Route::get('/', function () {
 Route::resource('todos', App\Http\Controllers\TodoController::class)
     ->except(['show']);
 
-Route::get('/api/customers', function () {});
+Route::get('/api/customers', function () {
+    return response()->json();
+});
 Route::post('/api/customers', function () {});
 Route::get('/api/customers/{id}', function () {});
 Route::put('/api/customers/{id}', function () {});

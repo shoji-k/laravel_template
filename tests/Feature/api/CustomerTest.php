@@ -15,6 +15,7 @@ class CustomerTest extends TestCase
     {
         $response = $this->get('api/customers');
         $response->assertStatus(200);
+        $this->assertThat($response->content(), $this->isJson());
     }
 
     /**
