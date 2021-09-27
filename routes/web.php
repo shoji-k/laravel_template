@@ -21,6 +21,15 @@ Route::get('/', function () {
 Route::resource('todos', App\Http\Controllers\TodoController::class)
     ->except(['show']);
 
+Route::get('/orders/create', [App\Http\Controllers\OrderController::class, 'create'])->name('orders.create');;
+Route::post('/orders/store', [App\Http\Controllers\OrderController::class, 'store'])->name('orders.store');;
+Route::get('/orders/success', function () {
+    return 'success';
+});
+Route::get('/orders/cancel', function () {
+    return 'cancel';
+});
+
 Route::get('/api/customers', [CustomerController::class, 'index']);
 Route::post('/api/customers', [CustomerController::class, 'store']);
 
