@@ -11,8 +11,10 @@
             <dl>
                 <dt>Todo</dt>
                 <dd>
-                    <input id="todo" name="todo" />
-                    <span style="color: red;">{{ $errors->first('todo') }}</span>
+                    <input id="todo" name="todo" class="@error('todo') is-invalid @enderror" />
+                    @error('todo')
+                    <div class="alert alert-danger">{{ $message }}</div>
+                    @enderror
                 </dd>
             </dl>
             <button type="submit" name="action" value="send">Create</button>

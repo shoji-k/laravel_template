@@ -5,6 +5,14 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>{{ $title ?? 'Sample App' }}</title>
+    <style>
+        .is-invalid {
+            border: 1px solid red;
+        }
+        .alert-danger {
+            color: red;
+        }
+    </style>
 </head>
 
 <body>
