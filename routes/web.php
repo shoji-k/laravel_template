@@ -30,15 +30,33 @@ Route::get('/orders/cancel', function () {
     return 'cancel';
 });
 
+Route::get('/register/create',  [App\Http\Controllers\RegisterController::class, 'create'])
+    ->middleware('guest')
+    ->name('register.create');
+Route::post('/register/store',  [App\Http\Controllers\RegisterController::class, 'store'])
+    ->middleware('guest')
+    ->name('register.store');
+Route::get('/register/complete', function () {
+    return view('register.complete');
+})->name('register.complete');
+
 Route::get('/api/customers', [CustomerController::class, 'index']);
 Route::post('/api/customers', [CustomerController::class, 'store']);
 
-Route::get('/api/customers/{id}', function () {});
-Route::put('/api/customers/{id}', function () {});
-Route::delete('/api/customers/{id}', function () {});
+Route::get('/api/customers/{id}', function () {
+});
+Route::put('/api/customers/{id}', function () {
+});
+Route::delete('/api/customers/{id}', function () {
+});
 
-Route::get('/api/reports', function () {});
-Route::post('/api/reports', function () {});
-Route::get('/api/reports/{id}', function () {});
-Route::put('/api/reports/{id}', function () {});
-Route::delete('/api/reports/{id}', function () {});
+Route::get('/api/reports', function () {
+});
+Route::post('/api/reports', function () {
+});
+Route::get('/api/reports/{id}', function () {
+});
+Route::put('/api/reports/{id}', function () {
+});
+Route::delete('/api/reports/{id}', function () {
+});
