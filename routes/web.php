@@ -21,14 +21,14 @@ Route::get('/', function () {
 Route::resource('todos', App\Http\Controllers\TodoController::class)
     ->except(['show']);
 
-Route::get('/orders/create', [App\Http\Controllers\OrderController::class, 'create'])->name('orders.create');;
-Route::post('/orders/store', [App\Http\Controllers\OrderController::class, 'store'])->name('orders.store');;
+Route::get('/orders/create', [App\Http\Controllers\OrderController::class, 'create'])->name('orders.create')->middleware('auth');
+Route::post('/orders/store', [App\Http\Controllers\OrderController::class, 'store'])->name('orders.store')->middleware('auth');
 Route::get('/orders/success', function () {
     return 'success';
-});
+})->middleware('auth');
 Route::get('/orders/cancel', function () {
     return 'cancel';
-});
+})->middleware('auth');
 
 Route::get('/register',  [App\Http\Controllers\RegisterController::class, 'create'])
     ->middleware('guest')
