@@ -30,9 +30,9 @@ Route::get('/orders/cancel', function () {
     return 'cancel';
 });
 
-Route::get('/register/create',  [App\Http\Controllers\RegisterController::class, 'create'])
+Route::get('/register',  [App\Http\Controllers\RegisterController::class, 'create'])
     ->middleware('guest')
-    ->name('register.create');
+    ->name('register');
 Route::post('/register/store',  [App\Http\Controllers\RegisterController::class, 'store'])
     ->middleware('guest')
     ->name('register.store');
@@ -46,6 +46,9 @@ Route::get('/login',  [App\Http\Controllers\LoginController::class, 'index'])
 Route::post('/login',  [App\Http\Controllers\LoginController::class, 'authenticate'])
     ->middleware('guest')
     ->name('login.authenticate');
+Route::get('/logout',  [App\Http\Controllers\LoginController::class, 'logout'])
+    ->middleware('auth')
+    ->name('logout');
 
 Route::get('/api/customers', [CustomerController::class, 'index']);
 Route::post('/api/customers', [CustomerController::class, 'store']);
