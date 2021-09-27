@@ -11,7 +11,7 @@
     <h1>Login</h1>
     <div>
         @isset($errors)
-            <p style="color: red;">{{ $errors->first('message') }}</p>
+            <x-alert :message="$errors->first('message')"/>
         @endisset
         <form name="loginform" action="{{ route('login.authenticate') }}" method="post" id="loginform">
             @csrf

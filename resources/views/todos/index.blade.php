@@ -1,13 +1,5 @@
-<!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
-
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Todos</title>
-</head>
-
-<body>
+<x-layout>
+    <x-slot name="title">Todo list</x-slot>
     <h1>Todo list</h1>
     <div>
         <a href="{{ route('todos.create') }}">Create</a>
@@ -22,6 +14,4 @@
         </li>
         @endforeach
     </ul>
-</body>
-
-</html>
+</x-layout>
