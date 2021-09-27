@@ -9,10 +9,13 @@
         .is-invalid {
             border: 1px solid red;
         }
+
         .alert-danger {
             color: red;
         }
     </style>
+
+    @stack('scripts')
 </head>
 
 <body>
