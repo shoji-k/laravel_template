@@ -1,13 +1,6 @@
-<!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+<x-layout>
+    <x-slot name="title">Create Todo</x-slot>
 
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Create Todo</title>
-</head>
-
-<body>
     <h1>Create Todo</h1>
     <div>
         <a href="{{ route('todos.index') }}">Back to list</a>
@@ -25,6 +18,4 @@
             <button type="submit" name="action" value="send">Create</button>
         </form>
     </div>
-</body>
-
-</html>
+</x-layout>

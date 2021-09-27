@@ -1,13 +1,5 @@
-<!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
-
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Create Todo</title>
-</head>
-
-<body>
+<x-layout>
+    <x-slot name="title">Edit Todo</x-slot>
     <h1>Edit Todo</h1>
     <div>
         <a href="{{ route('todos.index') }}">Back to list</a>
@@ -25,17 +17,15 @@
                 <dt>Finish?</dt>
                 <dd>
                     <div>
-                        <input type="radio" id="done" name="done" value="0"
-                        @if (!$todo->done)
-                          checked
+                        <input type="radio" id="done" name="done" value="0" @if (!$todo->done)
+                        checked
                         @endif
                         />
                         <label for="done">Yet</label>
                     </div>
                     <div>
-                        <input type="radio" id="yet" name="done" value="1"
-                        @if ($todo->done)
-                          checked
+                        <input type="radio" id="yet" name="done" value="1" @if ($todo->done)
+                        checked
                         @endif
                         />
                         <label for="yet">Done!</label>
@@ -51,6 +41,4 @@
             <button type="submit">Delete</button>
         </form>
     </div>
-</body>
-
-</html>
+</x-layout>
