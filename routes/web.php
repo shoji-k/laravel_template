@@ -40,6 +40,13 @@ Route::get('/register/complete', function () {
     return view('register.complete');
 })->name('register.complete');
 
+Route::get('/login',  [App\Http\Controllers\LoginController::class, 'index'])
+    ->middleware('guest')
+    ->name('login');
+Route::post('/login',  [App\Http\Controllers\LoginController::class, 'authenticate'])
+    ->middleware('guest')
+    ->name('login.authenticate');
+
 Route::get('/api/customers', [CustomerController::class, 'index']);
 Route::post('/api/customers', [CustomerController::class, 'store']);
 
