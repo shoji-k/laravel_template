@@ -75,3 +75,7 @@ Route::put('/api/reports/{id}', function () {
 });
 Route::delete('/api/reports/{id}', function () {
 });
+
+Route::get('/properties',  [App\Http\Controllers\PropertyController::class, 'index'])
+    ->middleware('guest')
+    ->name('properties');
