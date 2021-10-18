@@ -1,7 +1,6 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\Api\CustomerController;
 
 /*
 |--------------------------------------------------------------------------
@@ -17,6 +16,12 @@ use App\Http\Controllers\Api\CustomerController;
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::get('/dashboard', function () {
+    return view('dashboard');
+})->middleware(['auth'])->name('dashboard');
+
+require __DIR__.'/auth.php';
 
 Route::resource('todos', App\Http\Controllers\TodoController::class)
     ->except(['show']);
@@ -50,8 +55,8 @@ Route::get('/logout',  [App\Http\Controllers\LoginController::class, 'logout'])
     ->middleware('auth')
     ->name('logout');
 
-Route::get('/api/customers', [CustomerController::class, 'index']);
-Route::post('/api/customers', [CustomerController::class, 'store']);
+Route::get('/api/customers', [App\Http\Controllers\Api\CustomerController::class, 'index']);
+Route::post('/api/customers', [App\Http\Controllers\Api\CustomerController::class, 'store']);
 
 Route::get('/api/customers/{id}', function () {
 });
@@ -70,3 +75,7 @@ Route::put('/api/reports/{id}', function () {
 });
 Route::delete('/api/reports/{id}', function () {
 });
+
+Route::get('/properties',  [App\Http\Controllers\PropertyController::class, 'index'])
+    ->middleware('guest')
+    ->name('properties');
