@@ -21,7 +21,7 @@ Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth'])->name('dashboard');
 
-require __DIR__.'/auth.php';
+require __DIR__ . '/auth.php';
 
 Route::resource('todos', App\Http\Controllers\TodoController::class)
     ->except(['show']);
@@ -76,6 +76,4 @@ Route::put('/api/reports/{id}', function () {
 Route::delete('/api/reports/{id}', function () {
 });
 
-Route::get('/properties',  [App\Http\Controllers\PropertyController::class, 'index'])
-    ->middleware('guest')
-    ->name('properties');
+Route::resource('properties', App\Http\Controllers\PropertyController::class);
