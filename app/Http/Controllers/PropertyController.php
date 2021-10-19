@@ -15,7 +15,7 @@ class PropertyController extends Controller
      */
     public function index()
     {
-        $data = $todos = DB::table('properties')->get();
+        $data = DB::table('properties')->get();
         return view('properties.index', compact('data'));
     }
 
@@ -48,7 +48,7 @@ class PropertyController extends Controller
      */
     public function show(Property $property)
     {
-        //
+        return view('properties.show', ['data' => $property]);
     }
 
     /**
