@@ -22,6 +22,7 @@ Route::get('/dashboard', function () {
 })->middleware(['auth'])->name('dashboard');
 
 require __DIR__ . '/auth.php';
+require __DIR__ . '/admin.php';
 
 Route::resource('todos', App\Http\Controllers\TodoController::class)
     ->except(['show']);
