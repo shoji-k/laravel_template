@@ -36,25 +36,25 @@ Route::get('/orders/cancel', function () {
     return 'cancel';
 })->middleware('auth');
 
-Route::get('/register',  [App\Http\Controllers\RegisterController::class, 'create'])
-    ->middleware('guest')
-    ->name('register');
-Route::post('/register/store',  [App\Http\Controllers\RegisterController::class, 'store'])
-    ->middleware('guest')
-    ->name('register.store');
-Route::get('/register/complete', function () {
-    return view('register.complete');
-})->name('register.complete');
+// Route::get('/register',  [App\Http\Controllers\RegisterController::class, 'create'])
+//     ->middleware('guest')
+//     ->name('register');
+// Route::post('/register/store',  [App\Http\Controllers\RegisterController::class, 'store'])
+//     ->middleware('guest')
+//     ->name('register.store');
+// Route::get('/register/complete', function () {
+//     return view('register.complete');
+// })->name('register.complete');
 
-Route::get('/login',  [App\Http\Controllers\LoginController::class, 'index'])
-    ->middleware('guest')
-    ->name('login');
-Route::post('/login',  [App\Http\Controllers\LoginController::class, 'authenticate'])
-    ->middleware('guest')
-    ->name('login.authenticate');
-Route::get('/logout',  [App\Http\Controllers\LoginController::class, 'logout'])
-    ->middleware('auth')
-    ->name('logout');
+// Route::get('/login',  [App\Http\Controllers\LoginController::class, 'index'])
+//     ->middleware('guest')
+//     ->name('login');
+// Route::post('/login',  [App\Http\Controllers\LoginController::class, 'authenticate'])
+//     ->middleware('guest')
+//     ->name('login.authenticate');
+// Route::get('/logout',  [App\Http\Controllers\LoginController::class, 'logout'])
+//     ->middleware('auth')
+//     ->name('logout');
 
 Route::get('/api/customers', [App\Http\Controllers\Api\CustomerController::class, 'index']);
 Route::post('/api/customers', [App\Http\Controllers\Api\CustomerController::class, 'store']);
