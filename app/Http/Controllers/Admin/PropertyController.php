@@ -48,7 +48,7 @@ class PropertyController extends \App\Http\Controllers\Controller
      */
     public function show(Property $property)
     {
-        return view('properties.show', ['data' => $property]);
+        return view('admin.properties.show', ['data' => $property]);
     }
 
     /**
@@ -59,7 +59,9 @@ class PropertyController extends \App\Http\Controllers\Controller
      */
     public function edit(Property $property)
     {
-        //
+        return view('admin.properties.edit', [
+            'data' => $property
+        ]);
     }
 
     /**

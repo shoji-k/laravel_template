@@ -5,4 +5,9 @@
     <div>
         {{ $data->name }}
     </div>
+    <div>
+        <a href="{{ route('admin.properties.edit', ['property' => $data->id]) }}" class="hover:underline">
+            Edit
+        </a>
+    </div>
 </x-layout>
