@@ -3,7 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Models\Property;
-use Illuminate\Http\Request;
+use App\Http\Requests\PropertyRequest;
 use Illuminate\Support\Facades\DB;
 
 class PropertyController extends \App\Http\Controllers\Controller
@@ -32,10 +32,10 @@ class PropertyController extends \App\Http\Controllers\Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param  \App\Http\Requests\PropertyRequest  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(PropertyRequest $request)
     {
         //
     }
@@ -67,13 +67,15 @@ class PropertyController extends \App\Http\Controllers\Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param  \App\Http\Requests\PropertyRequest  $request
      * @param  \App\Models\Property  $property
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Property $property)
+    public function update(PropertyRequest $request, Property $property)
     {
-        //
+        $property->name = $request->name;
+        $property->save();
+        return redirect()->route('admin.properties.index');
     }
 
     /**
