@@ -11,6 +11,11 @@
                 <div class="p-6 bg-white border-b border-gray-200">
                     Manager pages
                 </div>
+                <div class="p-6 bg-white border-b border-gray-200">
+                    <a href="{{ route('admin.properties.index') }}" class="hover:underline">
+                        Properties
+                    </a>
+                </div>
             </div>
         </div>
     </div>
