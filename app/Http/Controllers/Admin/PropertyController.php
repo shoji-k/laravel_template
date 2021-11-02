@@ -86,6 +86,7 @@ class PropertyController extends \App\Http\Controllers\Controller
      */
     public function destroy(Property $property)
     {
-        //
+        $property->delete();
+        return redirect()->route('admin.properties.index');
     }
 }
