@@ -2,6 +2,11 @@
     <x-slot name="title">物件一覧</x-slot>
 
     <h1 class="text-lg mb-2">物件一覧</h1>
+    <div class="mb-2">
+        <a href="{{ route('admin.properties.create') }}" class="hover:underline">
+            Create
+        </a>
+    </div>
     <div>
         @empty($data)
         データはありません

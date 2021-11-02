@@ -26,7 +26,7 @@ class PropertyController extends \App\Http\Controllers\Controller
      */
     public function create()
     {
-        //
+        return view('admin.properties.create');
     }
 
     /**
@@ -37,7 +37,10 @@ class PropertyController extends \App\Http\Controllers\Controller
      */
     public function store(PropertyRequest $request)
     {
-        //
+        Property::create([
+            'name' => $request->name
+        ]);
+        return redirect()->route('admin.properties.index');
     }
 
     /**
